@@ -35,6 +35,7 @@ export const pageQuery = graphql`
         id
         slug
         title
+        description
         image {
           childImageSharp {
             gatsbyImageData(aspectRatio: 1)

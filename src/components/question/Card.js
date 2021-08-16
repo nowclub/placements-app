@@ -18,7 +18,7 @@ const QuestionCard = ({ index, question, children }) => (
       {question}
     </Heading>
 
-    <Box mt="3">{children}</Box>
+    {children && <Box mt="2">{children}</Box>}
   </Box>
 );
 

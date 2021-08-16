@@ -22,7 +22,8 @@ export default function ExamPage({ data }) {
     exam: { title, description, image, writtenQuestions, oralQuestions },
   } = data;
 
-  const { control } = useForm();
+  const methods = useForm();
+  const { handleSubmit } = methods;
 
   return (
     <Container maxW="container.md" my="4">
@@ -71,18 +72,19 @@ export default function ExamPage({ data }) {
           <Text mt="2">{description}</Text>
         </Flex>
       </Box>
+      <form onSubmit={handleSubmit((data) => console.log(data))}>
+        <FormProvider {...methods}>
+          <WrittenPart questions={writtenQuestions}></WrittenPart>
 
-      <FormProvider control={control}>
-        <WrittenPart questions={writtenQuestions}></WrittenPart>
+          <OralPart questions={oralQuestions}></OralPart>
 
-        <OralPart questions={oralQuestions}></OralPart>
+          <ContactPart />
 
-        <ContactPart />
-
-        <Button isFullWidth colorScheme="blue" size="lg">
-          Submit
-        </Button>
-      </FormProvider>
+          <Button type="submit" isFullWidth colorScheme="blue" size="lg">
+            Submit
+          </Button>
+        </FormProvider>
+      </form>
     </Container>
   );
 }
@@ -107,6 +109,7 @@ export const pageQuery = graphql`
         level
         question
         choices
+        correct
       }
     }
   }

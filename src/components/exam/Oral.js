@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import QuestionCard from "../question/Card";
+import OralQuestion from "../question/Oral";
 import Part from "./Part";
 
 function Oral({ questions }) {
@@ -18,11 +19,11 @@ function Oral({ questions }) {
         `}
     >
       {questions.map(({ question }, index) => (
-        <QuestionCard
+        <OralQuestion
           key={index}
           index={index + 1}
           question={question}
-        ></QuestionCard>
+        ></OralQuestion>
       ))}
     </Part>
   );

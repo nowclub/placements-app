@@ -2,6 +2,7 @@ import {
   AspectRatio,
   Box,
   Heading,
+  Text,
   LinkBox,
   LinkOverlay,
 } from "@chakra-ui/react";
@@ -9,10 +10,10 @@ import { Link as GatsbyLink } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 
-function ExamCard({ title, image, slug }) {
+function ExamCard({ title, image, slug, description }) {
   return (
     <LinkBox overflow="hidden" position="relative">
-      <AspectRatio ratio={1 / 1}>
+      <AspectRatio ratio={1.5 / 1}>
         <GatsbyImage image={getImage(image)} alt="" objectFit="cover" />
       </AspectRatio>
 
@@ -42,6 +43,8 @@ function ExamCard({ title, image, slug }) {
             {title}
           </LinkOverlay>
         </Heading>
+
+        <Text isTruncated>{description}</Text>
       </Box>
     </LinkBox>
   );

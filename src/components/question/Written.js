@@ -1,10 +1,22 @@
 import React, { forwardRef, useMemo } from "react";
-import { Box, FormControl, RadioGroup, Wrap, Radio } from "@chakra-ui/react";
+import {
+  Box,
+  FormControl,
+  RadioGroup,
+  Wrap,
+  Radio,
+  FormLabel,
+  FormErrorMessage,
+  Stack,
+} from "@chakra-ui/react";
 
 import Card from "./Card";
 
 const WrittenQuestion = forwardRef(
-  ({ index, question, choices, value, onChange }, ref) => {
+  (
+    { index, question, choices, isDisabled, isInvalid, value, onChange },
+    ref
+  ) => {
     const [left, right] = useMemo(() => question.split("_"), [question]);
     return (
       <Card
@@ -25,15 +37,22 @@ const WrittenQuestion = forwardRef(
           </>
         }
       >
-        <RadioGroup ref={ref} value={value} onChange={onChange}>
-          <Wrap spacing={4}>
-            {choices.map((choice) => (
-              <Radio key={choice} value={choice}>
-                {choice}
-              </Radio>
-            ))}
-          </Wrap>
-        </RadioGroup>
+        {!isDisabled && (
+          <FormControl isInvalid={isInvalid}>
+            <FormLabel>Choose one answer:</FormLabel>
+            <RadioGroup ref={ref} value={value} onChange={onChange}>
+              <Stack direction="column" spacing={4}>
+                {choices.map((choice) => (
+                  <Radio key={choice} value={choice}>
+                    {choice}
+                  </Radio>
+                ))}
+              </Stack>
+            </RadioGroup>
+
+            <FormErrorMessage>Please select an option</FormErrorMessage>
+          </FormControl>
+        )}
       </Card>
     );
   }

@@ -13,6 +13,61 @@ const theme = extendTheme({
     heading: "IBM Plex Mono",
     body: "Open Sans",
   },
+  components: {
+    Button: {
+      baseStyle: {
+        borderRadius: "none",
+      },
+    },
+    Input: {
+      sizes: {
+        xs: {
+          field: { borderRadius: "none" },
+          addon: { borderRadius: "none" },
+        },
+        sm: {
+          field: { borderRadius: "none" },
+          addon: { borderRadius: "none" },
+        },
+        md: {
+          field: { borderRadius: "none" },
+          addon: { borderRadius: "none" },
+        },
+        lg: {
+          field: { borderRadius: "none" },
+          addon: { borderRadius: "none" },
+        },
+      },
+    },
+    Select: {
+      sizes: {
+        xs: {
+          field: { borderRadius: "none" },
+          addon: { borderRadius: "none" },
+        },
+        sm: {
+          field: { borderRadius: "none" },
+          addon: { borderRadius: "none" },
+        },
+        md: {
+          field: { borderRadius: "none" },
+          addon: { borderRadius: "none" },
+        },
+        lg: {
+          field: { borderRadius: "none" },
+          addon: { borderRadius: "none" },
+        },
+      },
+    },
+    Textarea: {
+      sizes: {
+        xs: { borderRadius: "none" },
+        sm: { borderRadius: "none" },
+        md: { borderRadius: "none" },
+        lg: { borderRadius: "none" },
+      },
+    },
+  },
 });
 
 export default theme;

@@ -1,10 +1,17 @@
-import React, { useEffect } from "react";
-import { Controller, useFieldArray, useFormContext } from "react-hook-form";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  Controller,
+  useFieldArray,
+  useFormContext,
+  useWatch,
+} from "react-hook-form";
 
 import { Button } from "@chakra-ui/react";
 
 import WrittenQuestion from "../question/Written";
 import Part from "./Part";
+
+const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
 function Written({ questions }) {
   const { control } = useFormContext();
@@ -14,11 +21,54 @@ function Written({ questions }) {
     name: `written_questions`,
   });
 
-  useEffect(() => append(questions), [questions]);
+  const answers = useWatch({ control, name: "written_questions" });
+
+  const [done, setDone] = useState(false);
+  const [level, setLevel] = useState(0);
+
+  const questionsByLevel = useMemo(
+    () =>
+      LEVELS.map((currentLevel) =>
+        questions.filter(({ level }) => currentLevel === level)
+      ),
+    [questions]
+  );
+
+  useEffect(() => append(questionsByLevel[0]), []);
+
+  const handleNextLevel = () => {
+    if (level + 1 === LEVELS.length) return;
+
+    const levelAnswers = answers.filter(
+      ({ level: questionLevel }) => LEVELS[level] === questionLevel
+    );
+
+    if (levelAnswers.some(({ answer }) => answer === undefined)) {
+      return;
+    }
+
+    if (levelAnswers.length !== 0) {
+      const correctAnswers = levelAnswers.filter(
+        ({ answer, correct }) => answer === correct
+      );
+
+      const score = correctAnswers.length / levelAnswers.length;
+
+      if (score > 0.7) {
+        append(questionsByLevel[level + 1]);
+        setLevel(level + 1);
+      } else {
+        setDone(true);
+      }
+    } else {
+      append(questionsByLevel[level + 1]);
+      setLevel(level + 1);
+    }
+  };
 
   return (
     <Part
-      title="Written Questions"
+      title={`Written Questions`}
       instructions={`
             Excepteur occaecat culpa amet reprehenderit cillum ipsum aliqua
             mollit id cillum et eiusmod laboris quis. Velit est ut adipisicing
@@ -27,9 +77,11 @@ function Written({ questions }) {
             exercitation veniam et dolor laboris excepteur.
         `}
       actions={
-        <Button isFullWidth colorScheme="blue">
-          Next
-        </Button>
+        !done && (
+          <Button isFullWidth colorScheme="blue" onClick={handleNextLevel}>
+            Next
+          </Button>
+        )
       }
     >
       {fields.map((data, index) => (
@@ -38,11 +90,13 @@ function Written({ questions }) {
           control={control}
           name={`written_questions.${index}.answer`}
           rules={{ required: true }}
-          render={({ field }) => (
+          render={({ field, fieldState: { invalid } }) => (
             <WrittenQuestion
               index={index}
               question={data.question}
               choices={data.choices}
+              isDisabled={done || data.level !== LEVELS[level]}
+              isInvalid={invalid}
               {...field}
             ></WrittenQuestion>
           )}

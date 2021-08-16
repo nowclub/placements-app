@@ -10,8 +10,8 @@ import React from "react";
 import { useFormContext } from "react-hook-form";
 import Part from "./Part";
 
-function Oral({}) {
-  const { control } = useFormContext();
+function Contact() {
+  const { register } = useFormContext();
 
   return (
     <Part
@@ -26,15 +26,15 @@ function Oral({}) {
     >
       <FormControl>
         <FormLabel>Name</FormLabel>
-        <Input />
+        <Input isRequired {...register("contact.name")} />
       </FormControl>
       <FormControl>
         <FormLabel>Email</FormLabel>
-        <Input type="email"></Input>
+        <Input type="email" isRequired {...register("contact.email")}></Input>
       </FormControl>
       <FormControl>
         <FormLabel>Phone</FormLabel>
-        <Input inputMode="tel"></Input>
+        <Input inputMode="tel" {...register("contact.phone")}></Input>
       </FormControl>
 
       <FormControl>
@@ -61,4 +61,4 @@ function Oral({}) {
   );
 }
 
-export default Oral;
+export default Contact;
