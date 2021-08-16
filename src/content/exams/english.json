@@ -1,0 +1,89 @@
+{
+  "slug": "english",
+  "title": "English",
+  "description": "Magna ad consectetur adipisicing non mollit anim veniam.",
+  "image": "../../images/andreas-dress-qHv9W48aZ8g-unsplash.jpg",
+  "written_questions": [
+    {
+      "level": "A1",
+      "question": "John made a sandwich _ he was hungry.",
+      "choices": ["so", "but", "and", "because"],
+      "correct": "because"
+    },
+    {
+      "level": "A1",
+      "question": "What time is it? It's _ (11:15).",
+      "choices": [
+        "quarter to eleven",
+        "eleven and fifteen",
+        "eleven fifteen",
+        "fifteen to eleven"
+      ],
+      "correct": "eleven fifteen"
+    },
+    {
+      "level": "A2",
+      "question": "I have a good memory. I know all of my _ birthdays.",
+      "choices": ["friend", "friends", "friend's", "friends'"],
+      "correct": "friends'"
+    },
+    {
+      "level": "A2",
+      "question": "Hey Linda. _? Great. And you?",
+      "choices": ["Who's up", "How's going", "How's it going", "What's it"],
+      "correct": "How's it going"
+    },
+    {
+      "level": "B1",
+      "question": "My wife doesn't _ golf. She thinks it's boring.",
+      "choices": ["care about", "take care about", "look after", "care after"],
+      "correct": "care about"
+    },
+    {
+      "level": "B1",
+      "question": "Is Jose from Spain? I _. I know he speaks Spanish.",
+      "choices": ["think", "think yes", "think so", "think that yes"],
+      "correct": "think so"
+    },
+    {
+      "level": "B2",
+      "question": "Generally _, February is the coldest month of the year.",
+      "choices": ["truth", "talking", "considered", "speaking"],
+      "correct": "speaking"
+    },
+    {
+      "level": "B2",
+      "question": "This bookstore has a _ range of books in French.",
+      "choices": ["clear", "perfect", "thick", "broad"],
+      "correct": "broad"
+    },
+    {
+      "level": "C1",
+      "question": "Those under the age of 21 are prohibited _ alcohol.",
+      "choices": ["from drinking", "to drink", "in drinking", "with drinking"],
+      "correct": "to drink"
+    },
+    {
+      "level": "C1",
+      "question": "I wish I _ that last slice of pizza. I'm so full I can hardly move.",
+      "choices": [
+        "hadn't eaten",
+        "haven't eaten",
+        "didn't eat",
+        "wouldn't eat"
+      ],
+      "correct": "haven't eaten"
+    },
+    {
+      "level": "C1",
+      "question": "If I had money, I _ my wife some jewelry for her birthday last week. But, I don't, so I gave her something I made myself.",
+      "choices": ["would have bought", "bought", "had bought", "would buy"],
+      "correct": "would have bought"
+    }
+  ],
+  "oral_questions": [
+    { "question": "Tell me about your hobbies." },
+    { "question": "If I gave you a million euros how would your life change?" },
+    { "question": "What does the future hold for you?" }
+  ]
+}
