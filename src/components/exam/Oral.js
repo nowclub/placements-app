@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 import QuestionCard from "../question/Card";
 import OralQuestion from "../question/Oral";
 import Part from "./Part";
@@ -19,11 +19,21 @@ function Oral({ questions }) {
         `}
     >
       {questions.map(({ question }, index) => (
-        <OralQuestion
+        <Controller
           key={index}
-          index={index + 1}
-          question={question}
-        ></OralQuestion>
+          control={control}
+          name={`oral_questions.${index}.answer`}
+          rules={{ required: true }}
+          render={({ field: { value, onChange }, fieldState: { invalid } }) => (
+            <OralQuestion
+              index={index + 1}
+              question={question}
+              value={value}
+              onChange={onChange}
+              isInvalid={invalid}
+            ></OralQuestion>
+          )}
+        />
       ))}
     </Part>
   );

@@ -102,8 +102,10 @@ function Playing({ source, onStop }) {
   );
 }
 
-function VoiceRecorder({ value, onChange }) {
+function VoiceRecorder({ value, onChange, isLoading }) {
   const [state, setState] = useState("idle");
+
+  if (isLoading) return <Button isLoading></Button>;
 
   return (
     <>
@@ -125,10 +127,7 @@ function VoiceRecorder({ value, onChange }) {
         />
       )}
       {state === "playing" && value && (
-        <Playing
-          source={URL.createObjectURL(value)}
-          onStop={() => setState("idle")}
-        />
+        <Playing source={value} onStop={() => setState("idle")} />
       )}
     </>
   );
