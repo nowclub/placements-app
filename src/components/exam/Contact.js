@@ -39,7 +39,10 @@ function Contact() {
 
       <FormControl>
         <FormLabel>What do you think is your current level?</FormLabel>
-        <Select placeholder="Select a level">
+        <Select
+          placeholder="Select a level"
+          {...register("contact.expected_level")}
+        >
           <option value="A1">A1 (total beginner)</option>
           <option value="A2">A2 (beginner)</option>
           <option value="B1">B1 (basic knowledge)</option>
@@ -52,7 +55,11 @@ function Contact() {
 
       <FormControl>
         <FormLabel>Tell us a bit about yourself</FormLabel>
-        <Textarea rows="4" placeholder="Write something here"></Textarea>
+        <Textarea
+          rows="4"
+          placeholder="Write something here"
+          {...register("contact.about_me")}
+        ></Textarea>
         <FormHelperText>
           Tell us about your current knowledge on this language and your goals
         </FormHelperText>

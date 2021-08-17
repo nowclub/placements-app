@@ -6,7 +6,7 @@ import {
   useWatch,
 } from "react-hook-form";
 
-import { Button } from "@chakra-ui/react";
+import { Button, Input } from "@chakra-ui/react";
 
 import WrittenQuestion from "../question/Written";
 import Part from "./Part";
@@ -14,7 +14,7 @@ import Part from "./Part";
 const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
 function Written({ questions }) {
-  const { control } = useFormContext();
+  const { control, register } = useFormContext();
 
   const { fields, append } = useFieldArray({
     control,
@@ -84,6 +84,7 @@ function Written({ questions }) {
         )
       }
     >
+      <Input type="hidden" {...register("level")} value={LEVELS[level]} />
       {fields.map((data, index) => (
         <Controller
           key={index}

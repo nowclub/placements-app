@@ -18,8 +18,6 @@ const s3Client = new S3Client({
 });
 
 export default async function handler(_req, res) {
-  console.log(`Bucket = ${BUCKET}`);
-
   const filename = `${RECORDINGS_DIR}/recording-${Date.now().toString()}.webm`;
 
   await s3Client.send(

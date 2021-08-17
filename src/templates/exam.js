@@ -6,11 +6,12 @@ import {
   Flex,
   Heading,
   Icon,
+  Input,
   Text,
 } from "@chakra-ui/react";
-import { graphql, Link as GatsbyLink } from "gatsby";
+import { graphql, Link as GatsbyLink, navigate } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import React from "react";
+import React, { useState } from "react";
 import { BiArrowBack as ArrowLeftIcon } from "react-icons/bi";
 import WrittenPart from "../components/exam/Written";
 import OralPart from "../components/exam/Oral";
@@ -19,11 +20,37 @@ import { useForm, FormProvider } from "react-hook-form";
 
 export default function ExamPage({ data }) {
   const {
-    exam: { title, description, image, writtenQuestions, oralQuestions },
+    exam: { slug, title, description, image, writtenQuestions, oralQuestions },
   } = data;
 
   const methods = useForm();
-  const { handleSubmit } = methods;
+  const { handleSubmit, register } = methods;
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const submitAnswers = async (data) => {
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/submit-placement", {
+        method: "POST",
+        headers: new Headers({ "Content-Type": "application/json" }),
+        body: JSON.stringify(data),
+      });
+
+      const { submission_id: submissionId, level } = await response.json();
+
+      console.log(
+        `Successefully submitted submittion with id = ${submissionId}`
+      );
+
+      await navigate("/success", { state: { submissionId, level } });
+    } catch (ex) {
+      console.log(ex);
+    }
+
+    setIsLoading(false);
+  };
 
   return (
     <Container maxW="container.md" my="4">
@@ -72,7 +99,9 @@ export default function ExamPage({ data }) {
           <Text mt="2">{description}</Text>
         </Flex>
       </Box>
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <form onSubmit={handleSubmit(submitAnswers)}>
+        <Input type="hidden" {...register("exam")} value={slug} />
+
         <FormProvider {...methods}>
           <WrittenPart questions={writtenQuestions}></WrittenPart>
 
@@ -80,7 +109,13 @@ export default function ExamPage({ data }) {
 
           <ContactPart />
 
-          <Button type="submit" isFullWidth colorScheme="blue" size="lg">
+          <Button
+            type="submit"
+            isFullWidth
+            colorScheme="blue"
+            size="lg"
+            isLoading={isLoading}
+          >
             Submit
           </Button>
         </FormProvider>
@@ -93,6 +128,7 @@ export const pageQuery = graphql`
   query GetExam($slug: String!) {
     exam: examsJson(slug: { eq: $slug }) {
       id
+      slug
       title
       description
       image {

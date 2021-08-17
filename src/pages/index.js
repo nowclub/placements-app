@@ -1,6 +1,15 @@
-import { Container, Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import {
+  Container,
+  Box,
+  Heading,
+  SimpleGrid,
+  Text,
+  Button,
+} from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
+
+import { Link as GatsbyLink } from "gatsby";
 
 import ExamCard from "../components/ExamCard";
 

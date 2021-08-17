@@ -13,7 +13,7 @@ import React from "react";
 function ExamCard({ title, image, slug, description }) {
   return (
     <LinkBox overflow="hidden" position="relative">
-      <AspectRatio ratio={1.5 / 1}>
+      <AspectRatio ratio={{ base: 1.5 / 1, md: 1 }}>
         <GatsbyImage image={getImage(image)} alt="" objectFit="cover" />
       </AspectRatio>
 
