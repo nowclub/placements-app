@@ -41,7 +41,7 @@ const WrittenQuestion = forwardRef(
           <FormControl isInvalid={isInvalid}>
             <FormLabel>Choose one answer:</FormLabel>
             <RadioGroup ref={ref} value={value} onChange={onChange}>
-              <Stack direction="column" spacing={4}>
+              <Stack direction="column" spacing="2">
                 {choices.map((choice) => (
                   <Radio key={choice} value={choice}>
                     {choice}

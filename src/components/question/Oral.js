@@ -1,37 +1,21 @@
-import React, { forwardRef, useMemo } from "react";
-import {
-  Box,
-  Button,
-  Icon,
-  FormControl,
-  RadioGroup,
-  Wrap,
-  Radio,
-  FormLabel,
-  FormErrorMessage,
-} from "@chakra-ui/react";
-
-import { BiMicrophone as RecordIcon } from "react-icons/bi";
-
+import { FormControl, FormErrorMessage, FormLabel } from "@chakra-ui/react";
+import React, { useState } from "react";
+import VoiceRecorder from "../VoiceRecorder";
 import Card from "./Card";
 
-const OralQuestion = forwardRef(({ index, question }, ref) => {
+const OralQuestion = ({ index, question }) => {
+  const [media, setMedia] = useState(null);
+
   return (
     <Card index={index + 1} question={question}>
       <FormControl>
         <FormLabel>Choose record your answer:</FormLabel>
-        <Button
-          ref={ref}
-          colorScheme="purple"
-          leftIcon={<Icon as={RecordIcon} />}
-        >
-          Record
-        </Button>
+        <VoiceRecorder value={media} onChange={(media) => setMedia(media)} />
 
         <FormErrorMessage>Please select an option</FormErrorMessage>
       </FormControl>
     </Card>
   );
-});
+};
 
 export default OralQuestion;
