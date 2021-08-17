@@ -10,6 +10,9 @@ CMS.init({
       name: "github",
       repo: "nowclub/placements-app",
       branch: "main",
+      site_domain: "cms.netlify.com",
+      base_url: "https://api.netlify.com",
+      auth_endpoint: "auth",
     },
     media_folder: "src/images/",
     collections: [
