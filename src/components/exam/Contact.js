@@ -41,6 +41,7 @@ function Contact() {
         <FormLabel>What do you think is your current level?</FormLabel>
         <Select
           placeholder="Select a level"
+          isRequired
           {...register("contact.expected_level")}
         >
           <option value="A1">A1 (total beginner)</option>

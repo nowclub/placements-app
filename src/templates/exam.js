@@ -29,6 +29,7 @@ export default function ExamPage({ data }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const submitAnswers = async (data) => {
+    console.log(data);
     setIsLoading(true);
 
     try {

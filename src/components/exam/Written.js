@@ -1,20 +1,18 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { Button, Input } from "@chakra-ui/react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   Controller,
   useFieldArray,
   useFormContext,
   useWatch,
 } from "react-hook-form";
-
-import { Button, Input } from "@chakra-ui/react";
-
 import WrittenQuestion from "../question/Written";
 import Part from "./Part";
 
 const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
 function Written({ questions }) {
-  const { control, register } = useFormContext();
+  const { control, register, setValue } = useFormContext();
 
   const { fields, append } = useFieldArray({
     control,
@@ -25,6 +23,10 @@ function Written({ questions }) {
 
   const [done, setDone] = useState(false);
   const [level, setLevel] = useState(0);
+
+  useEffect(() => {
+    setValue("level", LEVELS[level]);
+  }, [level]);
 
   const questionsByLevel = useMemo(
     () =>

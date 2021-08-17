@@ -1,6 +1,6 @@
 {
-  "slug": "english",
-  "title": "English",
+  "slug": "easy-english",
+  "title": "Easy English",
   "description": "Magna ad consectetur adipisicing non mollit anim veniam.",
   "image": "../../images/andreas-dress-qHv9W48aZ8g-unsplash.jpg",
   "written_questions": [
@@ -22,54 +22,6 @@
       "correct": "eleven fifteen"
     },
     {
-      "question": "_ your husband do? He's a doctor.",
-      "choices": ["What job", "What does", "Which job", "Where works"],
-      "level": "A1",
-      "correct": "What does"
-    },
-    {
-      "question": "My grandparents live in the countryside. _ have a big garden.",
-      "choices": ["Them", "Their", "There", "They"],
-      "level": "A1",
-      "correct": "They"
-    },
-    {
-      "question": "_ did you find the answer? I looked on the Internet.",
-      "choices": ["Why", "What", "How", "When"],
-      "level": "A1",
-      "correct": "How"
-    },
-    {
-      "question": "I don't want _ bed. I'm not tired.",
-      "choices": ["going", "to go to", "go", "go to"],
-      "level": "A1",
-      "correct": "to go to"
-    },
-    {
-      "question": "Please _ your room today.",
-      "choices": ["you clean", "clean", "cleaning", "to clean"],
-      "level": "A1",
-      "correct": "clean"
-    },
-    {
-      "question": "Every day, Jane has _ piece of cake after dinner.",
-      "choices": ["the", "a", "(nothing)", "some"],
-      "level": "A1",
-      "correct": "a"
-    },
-    {
-      "question": "_ weather is wonderful today.",
-      "choices": ["An", "A", "The", "(nothing)"],
-      "level": "A1",
-      "correct": "The"
-    },
-    {
-      "question": "My brother is very _. He plays basketball well.",
-      "choices": ["expensive", "high", "tall", "long"],
-      "level": "A1",
-      "correct": "tall"
-    },
-    {
       "question": "I have a good memory. I know all of my _ birthdays.",
       "choices": ["friend", "friend'", "friends", "friends'"],
       "level": "A2",
@@ -80,54 +32,6 @@
       "choices": ["Who's up", "What's going", "How's it going", "What's it"],
       "level": "A2",
       "correct": "Who's up"
-    },
-    {
-      "question": "You _ have a ticket if you want to ride the bus.",
-      "choices": ["might", "must", "cloud", "perhaps"],
-      "level": "A2",
-      "correct": "must"
-    },
-    {
-      "question": "_ we go out tonight? I don't want to stay home.",
-      "choices": ["Why don't", "Won't", "Let's", "Do"],
-      "level": "A2",
-      "correct": "Why don't"
-    },
-    {
-      "question": "Do you want to play football with us? Sure, _ .",
-      "choices": ["I play", "I'm going to play", "I'm playing", "I'll play"],
-      "level": "A2",
-      "correct": "I'll play"
-    },
-    {
-      "question": "Where is Bob? I don't know. I _ him all day.",
-      "choices": ["haven't seen", "don't see", "didn't see", "am not seeing"],
-      "level": "A2",
-      "correct": "haven't seen"
-    },
-    {
-      "question": "In North America, autumn _ in September.",
-      "choices": ["will start", "starts", "is going to start", "is starting"],
-      "level": "A2",
-      "correct": "starts"
-    },
-    {
-      "question": "John often rides his bicycle _ the river in summertime.",
-      "choices": ["on", "under", "along", "inside"],
-      "level": "A2",
-      "correct": "along"
-    },
-    {
-      "question": "What are you looking for? My keys! I can't find them _ .",
-      "choices": ["somewhere", "anywhere", "everywhere", "nowhere"],
-      "level": "A2",
-      "correct": "anywhere"
-    },
-    {
-      "question": "_ you buy your car? Last winter.",
-      "choices": ["How did", "When did", "How do", "When do"],
-      "level": "A2",
-      "correct": "When did"
     },
     {
       "question": "My wife doesn't _ golf. She thinks it's boring.",
@@ -142,59 +46,6 @@
       "correct": "haven't you"
     },
     {
-      "question": "Is Jose from Spain? I _ . I know he speaks Spanish.",
-      "choices": ["think", "think yes", "think so", "think that yes"],
-      "level": "B1",
-      "correct": "think so"
-    },
-    {
-      "question": "This question is easy. _ a beginner could answer it.",
-      "choices": ["Even though", "Even when", "Even if", "Even"],
-      "level": "B1",
-      "correct": "Even"
-    },
-    {
-      "question": "I _ go to bed early tonight. It depends on how I feel.",
-      "choices": ["will", "probably", "need to", "might"],
-      "level": "B1",
-      "correct": "need to"
-    },
-    {
-      "question": "My boyfriend is _ lazy to wash the dishes.",
-      "choices": ["so", "(nothing)", "too", "enough"],
-      "level": "B1",
-      "correct": "too"
-    },
-    {
-      "question": "_ you get a tattoo? Because I think it looks cool.",
-      "choices": ["Why did", "What king", "How did", "Why have"],
-      "level": "B1",
-      "correct": "Why did"
-    },
-    {
-      "question": "The little boy _ when his mother finished reading the story.",
-      "choices": [
-        "was already sleeping",
-        "has already slept",
-        "already slept",
-        "is already sleeping"
-      ],
-      "level": "B1",
-      "correct": "was already sleeping"
-    },
-    {
-      "question": "If you _ me to wear a suit, I would have worn one!",
-      "choices": ["has told", "would tell", "told", "would have told"],
-      "level": "B1",
-      "correct": "would have told"
-    },
-    {
-      "question": "When I was a boy, I _ often go swimming after school. I don't swim anymore though.",
-      "choices": ["didn't used to", "would", "wouldn't", "used"],
-      "level": "B1",
-      "correct": "used"
-    },
-    {
       "question": "Generally _, February is the coldest month of the year.",
       "choices": ["truth", "talking", "considered", "speaking"],
       "level": "B2",
@@ -205,84 +56,6 @@
       "choices": ["clear", "perfect", "thick", "broad"],
       "level": "B2",
       "correct": "broad"
-    },
-    {
-      "question": "_ , I'd find a new apartment. Your current one is too expensive.",
-      "choices": [
-        "In my opinion",
-        "It seems to me",
-        "According to me",
-        "If I were you"
-      ],
-      "level": "B2",
-      "correct": "If I were you"
-    },
-    {
-      "question": "_ I don't wear shorts is because I have very hairy legs.",
-      "choices": ["Why", "Because", "Since", "The reason"],
-      "level": "B2",
-      "correct": "The reason"
-    },
-    {
-      "question": "It's _ that John owns a car. He's quite poor.",
-      "choices": [
-        "definitely possible",
-        "completely unknown",
-        "probably certain",
-        "highly unlikely"
-      ],
-      "level": "B2",
-      "correct": "highly unlikely"
-    },
-    {
-      "question": "Kentaro _ a squirrel until he moved to Canada in 2008.",
-      "choices": [
-        "has never been seeing",
-        "never saw",
-        "has never seen",
-        "had never seen"
-      ],
-      "level": "B2",
-      "correct": "had never seen"
-    },
-    {
-      "question": "Walking to the bus stop, _ only takes about 10 minutes, is the only exercise I get every day.",
-      "choices": ["which", "that", "in which", "(nothing)"],
-      "level": "B2",
-      "correct": "which"
-    },
-    {
-      "question": "Jane had planned to clean the washroom today. But she might _ to tomorrow because she's feeling lazy.",
-      "choices": [
-        "put it off",
-        "move it forward",
-        "check it off",
-        "push it up"
-      ],
-      "level": "B2",
-      "correct": "move it forward"
-    },
-    {
-      "question": "The lady _ and then she quickly left the party.",
-      "choices": [
-        "said she has to go",
-        "told she has to go",
-        "said she had to go",
-        "told she had to go"
-      ],
-      "level": "B2",
-      "correct": "told she had to go"
-    },
-    {
-      "question": "By the time the airplane crosses the ocean, the pilot _ for 12 hours.",
-      "choices": [
-        "will have flown",
-        "will have been flying",
-        "is going to fly",
-        "has flown"
-      ],
-      "level": "B2",
-      "correct": "will have been flying"
     },
     {
       "question": "Although I had _ to help my brother get a job, he didn't even thank me.",
@@ -300,69 +73,7 @@
       "choices": ["as if", "in like", "like if", "as in"],
       "level": "C1",
       "correct": "as if"
-    },
-    {
-      "question": "The woman had _ problems that affected her behavior.",
-      "choices": ["psychologic", "psyche", "psyclical", "psychological"],
-      "level": "C1",
-      "correct": "psychological"
-    },
-    {
-      "question": "Can I ask a question? Yes, _ What is it?",
-      "choices": [
-        "why bother?",
-        "by all means!",
-        "you can say that again.",
-        "one way or the other."
-      ],
-      "level": "C1",
-      "correct": "by all means!"
-    },
-    {
-      "question": "John knew there was _ to be some interesting people at the party, so he went.",
-      "choices": ["highly likely", "surely", "bound", "no doubt"],
-      "level": "C1",
-      "correct": "highly likely"
-    },
-    {
-      "question": "The old coins, _ were valued at over 1 million dollars, were on display at the National Museum.",
-      "choices": ["of which many", "many which", "which many", "many of which"],
-      "level": "C1",
-      "correct": "many of which"
-    },
-    {
-      "question": "If you are bored with your life, then do something _ it! Get off the couch and try something new.",
-      "choices": ["about", "with", "to", "for"],
-      "level": "C1",
-      "correct": "about"
-    },
-    {
-      "question": "Those under the age of 21 are prohibited _ alcohol.",
-      "choices": ["from drinking", "to drink", "in drinking", "with drinking"],
-      "level": "C1",
-      "correct": "from drinking"
-    },
-    {
-      "question": "I wish I _ that last slice of pizza. I'm so full I can hardly move.",
-      "choices": [
-        "hadn't eaten",
-        "haven't eaten",
-        "didn't eat",
-        "wouldn't eat"
-      ],
-      "level": "C1",
-      "correct": "haven't eaten"
-    },
-    {
-      "question": "If I had money, I _ my wife some jewelry for her birthday last week. But, I don't, so I gave her something I made myself.",
-      "choices": ["would have bought", "bought", "had bought", "would buy"],
-      "level": "C1",
-      "correct": "would have bought"
     }
   ],
-  "oral_questions": [
-    { "question": "Tell me about your hobbies." },
-    { "question": "If I gave you a million euros how would your life change?" },
-    { "question": "What does the future hold for you?" }
-  ]
+  "oral_questions": [{ "question": "Tell me about your hobbies." }]
 }
