@@ -6,51 +6,63 @@ import {
   Flex,
   Heading,
   Icon,
-  Input,
   Text,
+  Center,
+  CircularProgress,
 } from "@chakra-ui/react";
-import { graphql, Link as GatsbyLink, navigate } from "gatsby";
+import { graphql, Link as GatsbyLink } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import { BiArrowBack as ArrowLeftIcon } from "react-icons/bi";
-import WrittenPart from "../components/exam/Written";
-import OralPart from "../components/exam/Oral";
 import ContactPart from "../components/exam/Contact";
-import { useForm, FormProvider } from "react-hook-form";
+import OralPart from "../components/exam/Oral";
+import Part from "../components/exam/Part";
+import WrittenPart from "../components/exam/Written";
+
+const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
 export default function ExamPage({ data }) {
   const {
     exam: { slug, title, description, image, writtenQuestions, oralQuestions },
   } = data;
 
-  const methods = useForm();
-  const { handleSubmit, register } = methods;
+  const [step, setStep] = useState("written");
+  const [levelIdx, setLevelIdx] = useState(0);
+  const level = LEVELS[levelIdx];
 
-  const [isLoading, setIsLoading] = useState(false);
-
-  const submitAnswers = async (data) => {
-    console.log(data);
-    setIsLoading(true);
-
-    try {
-      const response = await fetch("/api/submit-placement", {
-        method: "POST",
-        headers: new Headers({ "Content-Type": "application/json" }),
-        body: JSON.stringify(data),
-      });
-
-      const { submission_id: submissionId, level } = await response.json();
-
-      console.log(
-        `Successefully submitted submittion with id = ${submissionId}`
-      );
-
-      await navigate("/success", { state: { submissionId, level } });
-    } catch (ex) {
-      console.log(ex);
+  const advanceLevel = () => {
+    setLevelIdx(levelIdx + 1);
+    if (level === "C1") {
+      setStep("contact");
     }
+  };
 
-    setIsLoading(false);
+  const currentQuestions = writtenQuestions.filter((q) => q.level === level);
+
+  const [writtenAnswers, setWrittenAnswers] = useState([]);
+
+  const submitWrittenAnswers = ({ answers }) => {
+    const totalQuestions = currentQuestions.length;
+
+    const newAnswers = currentQuestions.map((q, index) => ({
+      ...q,
+      answer: answers[level][index],
+    }));
+
+    setWrittenAnswers([...writtenAnswers, newAnswers]);
+
+    const correctAnswers = newAnswers.filter(
+      ({ correct, answer }) => correct === answer
+    ).length;
+
+    const score = correctAnswers / totalQuestions;
+    console.log(score);
+
+    if (score > 0.7) {
+      advanceLevel();
+    } else {
+      setStep("contact");
+    }
   };
 
   return (
@@ -100,27 +112,58 @@ export default function ExamPage({ data }) {
           <Text mt="2">{description}</Text>
         </Flex>
       </Box>
-      <form onSubmit={handleSubmit(submitAnswers)}>
-        <Input type="hidden" {...register("exam")} value={slug} />
 
-        <FormProvider {...methods}>
-          <WrittenPart questions={writtenQuestions}></WrittenPart>
+      {step === "written" && (
+        <Part
+          title={`Written Questions`}
+          instructions="
+            Excepteur occaecat culpa amet reprehenderit cillum ipsum aliqua
+            mollit id cillum et eiusmod laboris quis. Velit est ut adipisicing
+            do. Dolor do excepteur Lorem sint aliqua tempor elit do velit. Duis
+            nulla est laborum cupidatat ad velit irure sit. Aliqua anim fugiat
+            exercitation veniam et dolor laboris excepteur.
+          "
+          onSubmit={(answers) => submitWrittenAnswers(answers)}
+        >
+          <WrittenPart questions={currentQuestions}></WrittenPart>
+        </Part>
+      )}
 
+      {step === "oral" && (
+        <Part
+          title="Oral Questions"
+          instructions={`
+            Excepteur occaecat culpa amet reprehenderit cillum ipsum aliqua
+            mollit id cillum et eiusmod laboris quis. Velit est ut adipisicing
+            do. Dolor do excepteur Lorem sint aliqua tempor elit do velit. Duis
+            nulla est laborum cupidatat ad velit irure sit. Aliqua anim fugiat
+            exercitation veniam et dolor laboris excepteur.
+          `}
+        >
           <OralPart questions={oralQuestions}></OralPart>
+        </Part>
+      )}
 
+      {step === "contact" && (
+        <Part
+          title="Personal Info"
+          instructions={`
+            Excepteur occaecat culpa amet reprehenderit cillum ipsum aliqua
+            mollit id cillum et eiusmod laboris quis. Velit est ut adipisicing
+            do. Dolor do excepteur Lorem sint aliqua tempor elit do velit. Duis
+            nulla est laborum cupidatat ad velit irure sit. Aliqua anim fugiat
+            exercitation veniam et dolor laboris excepteur.
+          `}
+        >
           <ContactPart />
-
-          <Button
-            type="submit"
-            isFullWidth
-            colorScheme="blue"
-            size="lg"
-            isLoading={isLoading}
-          >
-            Submit
-          </Button>
-        </FormProvider>
-      </form>
+        </Part>
+      )}
+      {step === "submitting" && (
+        <Center flexDir="column" my="8">
+          <CircularProgress isIndeterminate></CircularProgress>
+          <Text mt="4">Submitting your exam</Text>
+        </Center>
+      )}
     </Container>
   );
 }
