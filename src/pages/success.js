@@ -34,16 +34,15 @@ function Success({ location }) {
 
         <VStack mt="8" spacing="3" align="stretch">
           <Text>
-            Quis ea aliqua dolore quis aliqua qui cupidatat velit duis do
-            consectetur ullamco. Ullamco magna minim aliquip ullamco consequat
-            nulla non incididunt. Ut dolore dolor in proident eu consequat sint
-            Lorem culpa proident culpa. Adipisicing excepteur enim aliqua
-            laboris sunt adipisicing anim laborum duis ad irure nulla. Ut anim
-            amet dolor aute sint irure do do. Ea cupidatat excepteur aliquip qui
-            ut culpa veniam adipisicing quis.
+            You are successfully finished your exam! We will now verify your
+            answers and you should receive an email in the next days with you
+            correct level.
+            <br />
+            If you find any issues in your submission, please contact us and
+            give us your submission ID (given bellow).
           </Text>
           <Text>
-            You have achieved a level <b>{level}</b>
+            You have achieved the (provisional) level <b>{level}</b>
           </Text>
           <Text fontSize="sm">
             Your submission is the submission {submissionId}

@@ -1,19 +1,16 @@
 import {
   AspectRatio,
   Box,
-  Button,
+  Center,
+  CircularProgress,
   Container,
   Flex,
   Heading,
-  Icon,
   Text,
-  Center,
-  CircularProgress,
 } from "@chakra-ui/react";
-import { graphql, Link as GatsbyLink, navigate } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React, { useEffect, useState } from "react";
-import { BiArrowBack as ArrowLeftIcon } from "react-icons/bi";
 import ContactPart from "../components/exam/Contact";
 import OralPart from "../components/exam/Oral";
 import Part from "../components/exam/Part";
@@ -161,11 +158,9 @@ export default function ExamPage({ data }) {
         <Part
           title={`Written Questions`}
           instructions="
-            Excepteur occaecat culpa amet reprehenderit cillum ipsum aliqua
-            mollit id cillum et eiusmod laboris quis. Velit est ut adipisicing
-            do. Dolor do excepteur Lorem sint aliqua tempor elit do velit. Duis
-            nulla est laborum cupidatat ad velit irure sit. Aliqua anim fugiat
-            exercitation veniam et dolor laboris excepteur.
+            Answer to each one of the multiple choice questions so that the phrase makes sense.
+            There are potencially many batches of questions that you must complete sequencially to
+            finish all the written questions.
           "
           onSubmit={(data) => submitWrittenAnswers(data)}
         >
@@ -177,11 +172,7 @@ export default function ExamPage({ data }) {
         <Part
           title="Oral Questions"
           instructions={`
-            Excepteur occaecat culpa amet reprehenderit cillum ipsum aliqua
-            mollit id cillum et eiusmod laboris quis. Velit est ut adipisicing
-            do. Dolor do excepteur Lorem sint aliqua tempor elit do velit. Duis
-            nulla est laborum cupidatat ad velit irure sit. Aliqua anim fugiat
-            exercitation veniam et dolor laboris excepteur.
+            Record yourself answering each one of these questions.
           `}
           onSubmit={(data) => submitOralAnswers(data)}
         >
@@ -193,11 +184,7 @@ export default function ExamPage({ data }) {
         <Part
           title="Personal Info"
           instructions={`
-            Excepteur occaecat culpa amet reprehenderit cillum ipsum aliqua
-            mollit id cillum et eiusmod laboris quis. Velit est ut adipisicing
-            do. Dolor do excepteur Lorem sint aliqua tempor elit do velit. Duis
-            nulla est laborum cupidatat ad velit irure sit. Aliqua anim fugiat
-            exercitation veniam et dolor laboris excepteur.
+            Give us your personal info so we can know who you are.
           `}
           onSubmit={(data) => submitContact(data)}
         >
