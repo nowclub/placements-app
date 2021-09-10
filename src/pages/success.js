@@ -29,7 +29,7 @@ function Success({ location }) {
         </Button>
       </Box>
 
-      <Box as="section" my="8" p="4" borderWidth="2px" borderColor="gray.800">
+      <Box as="section" my="8" p="4">
         <Heading>Congratulations!</Heading>
 
         <VStack mt="8" spacing="3" align="stretch">
@@ -51,7 +51,14 @@ function Success({ location }) {
         </VStack>
 
         <Box mt="4">
-          <Button colorScheme="blue">Check our courses</Button>
+          <Button
+            as="a"
+            colorScheme="primary"
+            target="_black"
+            href="https://nowclub.pt/courses"
+          >
+            Check our courses
+          </Button>
         </Box>
       </Box>
     </Container>

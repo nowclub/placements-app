@@ -11,7 +11,11 @@ import { useTimer } from "../hooks/timer-hook";
 
 function Empty({ onStart }) {
   return (
-    <Button onClick={onStart} leftIcon={<Icon as={RecordIcon} />}>
+    <Button
+      onClick={onStart}
+      leftIcon={<Icon as={RecordIcon} />}
+      colorScheme="secondary"
+    >
       Record
     </Button>
   );
@@ -20,10 +24,14 @@ function Empty({ onStart }) {
 function Stopped({ onPlay, onRetry }) {
   return (
     <ButtonGroup isAttached>
-      <Button leftIcon={<Icon as={PlayIcon} />} onClick={onPlay}>
+      <Button
+        leftIcon={<Icon as={PlayIcon} />}
+        onClick={onPlay}
+        colorScheme="secondary"
+      >
         Play
       </Button>
-      <IconButton aria-label="retry" onClick={onRetry} colorScheme="red">
+      <IconButton aria-label="retry" onClick={onRetry} colorScheme="primary">
         <Icon as={RetryIcon} />
       </IconButton>
     </ButtonGroup>

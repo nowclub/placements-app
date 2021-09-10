@@ -8,6 +8,17 @@ function IndexPage({ data }) {
 
   return (
     <Container py="8" maxW="container.md">
+      <Box as="nav" my="4" display="flex" justifyContent="center">
+        <Heading letterSpacing="widest">
+          <Box as="span" color="primary.500" fontWeight="light">
+            NOW
+          </Box>
+          <Box as="span" color="secondary.500" fontWeight="bold">
+            Club
+          </Box>
+        </Heading>
+      </Box>
+
       <Box mb="8" mt="8">
         <Heading as="h1" size="3xl">
           Placement Exams

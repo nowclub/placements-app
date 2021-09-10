@@ -111,15 +111,15 @@ export default function ExamPage({ data }) {
 
   return (
     <Container maxW="container.md" my="4">
-      <Box as="nav" my="4">
-        <Button
-          as={GatsbyLink}
-          to="/"
-          variant="ghost"
-          leftIcon={<Icon as={ArrowLeftIcon} />}
-        >
-          All Exams
-        </Button>
+      <Box as="nav" my="4" display="flex" justifyContent="center">
+        <Heading letterSpacing="widest">
+          <Box as="span" color="primary.500" fontWeight="light">
+            NOW
+          </Box>
+          <Box as="span" color="secondary.500" fontWeight="bold">
+            Club
+          </Box>
+        </Heading>
       </Box>
 
       <Box as="header" position="relative" overflow="hidden">

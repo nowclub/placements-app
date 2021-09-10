@@ -27,7 +27,7 @@ const WrittenQuestion = forwardRef(
             <Box
               as="span"
               textDecoration="underline"
-              textDecorationColor="orange.500"
+              textDecorationColor="primary.500"
               textDecorationThickness="3px"
               textUnderlineOffset="3px"
             >

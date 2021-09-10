@@ -5,6 +5,10 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: { typekit: { id: "jyb8ubt" } },
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

@@ -17,7 +17,13 @@ function Part({ title, instructions, onSubmit, children }) {
           {children}
         </VStack>
 
-        <Button type="submit" isFullWidth mt="8" colorScheme="blue" size="lg">
+        <Button
+          type="submit"
+          isFullWidth
+          mt="8"
+          colorScheme="primary"
+          size="lg"
+        >
           Continue
         </Button>
       </Box>

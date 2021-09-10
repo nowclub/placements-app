@@ -3,7 +3,7 @@ import React from "react";
 import { Box, Text, Heading } from "@chakra-ui/react";
 
 const QuestionCard = ({ index, question, children }) => (
-  <Box p="3" bgColor="gray.50" borderWidth="1px" borderColor="gray.200">
+  <Box p="4" bgColor="whiteAlpha.600" borderRadius="md">
     <Text
       fontWeight="semibold"
       textTransform="uppercase"
