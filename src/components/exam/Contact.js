@@ -1,10 +1,5 @@
-import {
-  FormControl,
-  FormHelperText,
-  FormLabel,
-} from "@chakra-ui/form-control";
+import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input } from "@chakra-ui/input";
-import { Textarea } from "@chakra-ui/textarea";
 import React from "react";
 import { useFormContext } from "react-hook-form";
 

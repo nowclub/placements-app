@@ -1,16 +1,6 @@
-import {
-  Container,
-  Box,
-  Heading,
-  SimpleGrid,
-  Text,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Container, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
-
-import { Link as GatsbyLink } from "gatsby";
-
 import ExamCard from "../components/ExamCard";
 
 function IndexPage({ data }) {
@@ -20,13 +10,13 @@ function IndexPage({ data }) {
     <Container py="8" maxW="container.md">
       <Box mb="8" mt="8">
         <Heading as="h1" size="3xl">
-          All Placement Exams
+          Placement Exams
         </Heading>
 
         <Text mt="3">Select the exam you want to find your level</Text>
       </Box>
 
-      <SimpleGrid columns={[1, 2, 3]} spacing="4">
+      <SimpleGrid columns={[1, 2, 2]} spacing="4">
         {exams.nodes.map(({ id, ...data }) => (
           <ExamCard key={id} {...data} />
         ))}

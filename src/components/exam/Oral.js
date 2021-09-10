@@ -11,7 +11,7 @@ function Oral({ questions }) {
         <Controller
           key={index}
           control={control}
-          name={`oral_questions.${index}.answer`}
+          name={`answers.${index}`}
           rules={{ required: true }}
           render={({ field: { value, onChange }, fieldState: { invalid } }) => (
             <OralQuestion

@@ -10,9 +10,9 @@ import {
   Center,
   CircularProgress,
 } from "@chakra-ui/react";
-import { graphql, Link as GatsbyLink } from "gatsby";
+import { graphql, Link as GatsbyLink, navigate } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiArrowBack as ArrowLeftIcon } from "react-icons/bi";
 import ContactPart from "../components/exam/Contact";
 import OralPart from "../components/exam/Oral";
@@ -33,13 +33,15 @@ export default function ExamPage({ data }) {
   const advanceLevel = () => {
     setLevelIdx(levelIdx + 1);
     if (level === "C1") {
-      setStep("contact");
+      setStep("oral");
     }
   };
 
   const currentQuestions = writtenQuestions.filter((q) => q.level === level);
 
   const [writtenAnswers, setWrittenAnswers] = useState([]);
+  const [oralAnswers, setOralAnswers] = useState(null);
+  const [contact, setContact] = useState(null);
 
   const submitWrittenAnswers = ({ answers }) => {
     const totalQuestions = currentQuestions.length;
@@ -49,7 +51,7 @@ export default function ExamPage({ data }) {
       answer: answers[level][index],
     }));
 
-    setWrittenAnswers([...writtenAnswers, newAnswers]);
+    setWrittenAnswers([...writtenAnswers, ...newAnswers]);
 
     const correctAnswers = newAnswers.filter(
       ({ correct, answer }) => correct === answer
@@ -61,9 +63,51 @@ export default function ExamPage({ data }) {
     if (score > 0.7) {
       advanceLevel();
     } else {
-      setStep("contact");
+      setStep("oral");
     }
   };
+
+  const submitOralAnswers = ({ answers }) => {
+    const newAnswers = oralQuestions.map(({ q }, index) => ({
+      ...q,
+      answer: answers[index],
+    }));
+
+    setOralAnswers(newAnswers);
+
+    setStep("contact");
+  };
+
+  const submitContact = ({ contact }) => {
+    setContact(contact);
+
+    setStep("submitting");
+  };
+
+  useEffect(() => {
+    if (step === "submitting") {
+      fetch("/api/submit-placement", {
+        method: "POST",
+        body: JSON.stringify({
+          exam: slug,
+          level: LEVELS[levelIdx],
+          oralAnswers,
+          writtenAnswers,
+          contact,
+        }),
+        headers: new Headers({
+          "content-type": "application/json",
+        }),
+      })
+        .then((resp) => resp.json())
+        .then(({ submissionId, level }) =>
+          navigate("/success", { state: { submissionId, level } })
+        )
+        .catch(() => {
+          setStep("contact");
+        });
+    }
+  }, [step, level, oralAnswers, writtenAnswers, contact, levelIdx]);
 
   return (
     <Container maxW="container.md" my="4">
@@ -123,7 +167,7 @@ export default function ExamPage({ data }) {
             nulla est laborum cupidatat ad velit irure sit. Aliqua anim fugiat
             exercitation veniam et dolor laboris excepteur.
           "
-          onSubmit={(answers) => submitWrittenAnswers(answers)}
+          onSubmit={(data) => submitWrittenAnswers(data)}
         >
           <WrittenPart questions={currentQuestions}></WrittenPart>
         </Part>
@@ -139,6 +183,7 @@ export default function ExamPage({ data }) {
             nulla est laborum cupidatat ad velit irure sit. Aliqua anim fugiat
             exercitation veniam et dolor laboris excepteur.
           `}
+          onSubmit={(data) => submitOralAnswers(data)}
         >
           <OralPart questions={oralQuestions}></OralPart>
         </Part>
@@ -154,12 +199,13 @@ export default function ExamPage({ data }) {
             nulla est laborum cupidatat ad velit irure sit. Aliqua anim fugiat
             exercitation veniam et dolor laboris excepteur.
           `}
+          onSubmit={(data) => submitContact(data)}
         >
           <ContactPart />
         </Part>
       )}
       {step === "submitting" && (
-        <Center flexDir="column" my="8">
+        <Center flexDir="column" my="8" minH="10em">
           <CircularProgress isIndeterminate></CircularProgress>
           <Text mt="4">Submitting your exam</Text>
         </Center>
