@@ -7,6 +7,7 @@ import {
   Flex,
   Heading,
   Text,
+  Image,
 } from "@chakra-ui/react";
 import { graphql, navigate } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -108,15 +109,8 @@ export default function ExamPage({ data }) {
 
   return (
     <Container maxW="container.md" my="4">
-      <Box as="nav" my="4" display="flex" justifyContent="center">
-        <Heading letterSpacing="widest">
-          <Box as="span" color="primary.500" fontWeight="light">
-            NOW
-          </Box>
-          <Box as="span" color="secondary.500" fontWeight="bold">
-            Club
-          </Box>
-        </Heading>
+      <Box as="nav" my="4" display="flex" justifyContent="flex-start">
+        <Image h="12" src="/logo.svg" alt="NowClub"></Image>
       </Box>
 
       <Box as="header" position="relative" overflow="hidden">
