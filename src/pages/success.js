@@ -30,23 +30,20 @@ function Success({ location }) {
       </Box>
 
       <Box as="section" my="8" p="4">
-        <Heading>Congratulations!</Heading>
+        <Heading>Parabéns!</Heading>
 
         <VStack mt="8" spacing="3" align="stretch">
           <Text>
-            You are successfully finished your exam! We will now verify your
-            answers and you should receive an email in the next days with you
-            correct level.
-            <br />
-            If you find any issues in your submission, please contact us and
-            give us your submission ID (given bellow).
+            Terminou com sucesso o seu exame! Iremos agora verificar as suas
+            respostas e deverá receber nas próximas 24 horas úteis um e-mail com
+            o seu nível correto.
+            <br /> Se encontrar algum problema na sua submissão, contacte-nos e
+            dê-nos a sua identificação de submissão (abaixo indicada).
           </Text>
           <Text>
-            You have achieved the (provisional) level <b>{level}</b>
+            Conseguiu atingir o nível <b>{level}</b> (provisório).
           </Text>
-          <Text fontSize="sm">
-            Your submission is the submission {submissionId}
-          </Text>
+          <Text fontSize="sm">A sua submissão é a {submissionId}.</Text>
         </VStack>
 
         <Box mt="4">
@@ -54,9 +51,9 @@ function Success({ location }) {
             as="a"
             colorScheme="primary"
             target="_black"
-            href="https://nowclub.pt/courses"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSduyEQa5H3mLzwPRbaJkgQgC6CudWGg9gQZYm6jJmVPA0hQMw/viewform"
           >
-            Check our courses
+            Inscreve-te já
           </Button>
         </Box>
       </Box>
