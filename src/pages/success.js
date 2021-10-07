@@ -46,16 +46,34 @@ function Success({ location }) {
           <Text fontSize="sm">A sua submissão é a {submissionId}.</Text>
         </VStack>
 
-        <Box mt="4">
+        <VStack mt="4" spacing="4" align="flex-start">
           <Button
             as="a"
             colorScheme="primary"
             target="_black"
             href="https://docs.google.com/forms/d/e/1FAIpQLSduyEQa5H3mLzwPRbaJkgQgC6CudWGg9gQZYm6jJmVPA0hQMw/viewform"
           >
-            Inscreve-te já
+            Inscreve-te já em Cursos Universitários
           </Button>
-        </Box>
+
+          <Button
+            as="a"
+            colorScheme="primary"
+            target="_black"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfpTNea33UHbnuTZnZh1aoofLmVt8kslMH7UPlrnOpo5e9-ig/viewform"
+          >
+            Inscreve-te já no Curso Now Kids
+          </Button>
+
+          <Button
+            as="a"
+            colorScheme="primary"
+            target="_black"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeIymzlnaeM_VDSoThvy0GeR8LDc13SnpTWxWNaX7GetJawJQ/viewform"
+          >
+            Inscreve-te já no Curso Now Adults ou One on One
+          </Button>
+        </VStack>
       </Box>
     </Container>
   );

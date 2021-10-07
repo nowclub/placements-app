@@ -6,15 +6,18 @@ import Card from "./Card";
 const OralQuestion = ({ index, question, value, onChange, isInvalid }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const uploadMedia = useCallback(async (data) => {
-    const { uploadUrl, url } = await fetch("/api/upload-recording", {
-      method: "POST",
-    }).then((res) => res.json());
+  const uploadMedia = useCallback(
+    async (data) => {
+      const { uploadUrl, url } = await fetch("/api/upload-recording", {
+        method: "POST",
+      }).then((res) => res.json());
 
-    await fetch(uploadUrl, { method: "PUT", body: data });
+      await fetch(uploadUrl, { method: "PUT", body: data });
 
-    onChange(url);
-  }, []);
+      onChange(url);
+    },
+    [onChange]
+  );
 
   return (
     <Card index={index + 1} question={question}>

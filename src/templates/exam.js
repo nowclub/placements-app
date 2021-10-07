@@ -105,7 +105,7 @@ export default function ExamPage({ data }) {
           setStep("contact");
         });
     }
-  }, [step, level, oralAnswers, writtenAnswers, contact, levelIdx]);
+  }, [step, level, oralAnswers, writtenAnswers, contact, levelIdx, slug]);
 
   return (
     <Container maxW="container.md" my="4">
