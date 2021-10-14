@@ -41,8 +41,8 @@ function Stopped({ onPlay, onRetry }) {
 function Recording({ onStop }) {
   const { elapsed, start: startTimer, stop: stopTimer } = useTimer();
 
-  const constraints = useRef({ audio: true });
-  const options = useRef({ mimeType: "audio/webm" });
+  const constraints = useRef({ audio: true, video: false });
+  const options = useRef({});
 
   const {
     error,
