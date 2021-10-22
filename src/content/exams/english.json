@@ -79,7 +79,7 @@
       "question": "Hey Linda. _? Great. And you?",
       "choices": ["Who's up", "What's going", "How's it going", "What's it"],
       "level": "A2",
-      "correct": "Who's up"
+      "correct": "How's it going"
     },
     {
       "question": "You _ have a ticket if you want to ride the bus.",
@@ -157,7 +157,7 @@
       "question": "I _ go to bed early tonight. It depends on how I feel.",
       "choices": ["will", "probably", "need to", "might"],
       "level": "B1",
-      "correct": "need to"
+      "correct": "might"
     },
     {
       "question": "My boyfriend is _ lazy to wash the dishes.",
@@ -186,13 +186,13 @@
       "question": "If you _ me to wear a suit, I would have worn one!",
       "choices": ["has told", "would tell", "told", "would have told"],
       "level": "B1",
-      "correct": "would have told"
+      "correct": "told"
     },
     {
       "question": "When I was a boy, I _ often go swimming after school. I don't swim anymore though.",
       "choices": ["didn't used to", "would", "wouldn't", "used"],
       "level": "B1",
-      "correct": "used"
+      "correct": "would"
     },
     {
       "question": "Generally _, February is the coldest month of the year.",
@@ -260,7 +260,7 @@
         "push it up"
       ],
       "level": "B2",
-      "correct": "move it forward"
+      "correct": "put it off"
     },
     {
       "question": "The lady _ and then she quickly left the party.",
@@ -271,7 +271,7 @@
         "told she had to go"
       ],
       "level": "B2",
-      "correct": "told she had to go"
+      "correct": "said she had to go"
     },
     {
       "question": "By the time the airplane crosses the ocean, the pilot _ for 12 hours.",
@@ -322,7 +322,7 @@
       "question": "John knew there was _ to be some interesting people at the party, so he went.",
       "choices": ["highly likely", "surely", "bound", "no doubt"],
       "level": "C1",
-      "correct": "highly likely"
+      "correct": "bound"
     },
     {
       "question": "The old coins, _ were valued at over 1 million dollars, were on display at the National Museum.",
