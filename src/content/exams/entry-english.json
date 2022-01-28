@@ -1,9 +1,9 @@
 {
-  "slug": "english",
+  "slug": "testegratuito",
   "title": "English",
-  "description": "Para alunos inscritos",
-  "image": "../../images/leveltest_english.jpg",
-  "publish_result": true,
+  "description": "For levels from A1 to C2",
+  "image": "../../images/leveltest_website.jpg",
+  "publish_result": false,
   "written_questions": [
     {
       "question": "John made a sandwich _ he was hungry.",
@@ -360,10 +360,5 @@
       "level": "C1",
       "correct": "would have bought"
     }
-  ],
-  "oral_questions": [
-    { "question": "Tell me about your hobbies." },
-    { "question": "If I gave you a million euros how would your life change?" },
-    { "question": "What does the future hold for you?" }
   ]
 }

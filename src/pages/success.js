@@ -8,6 +8,7 @@ import {
   Button,
   Box,
   Icon,
+  Link,
 } from "@chakra-ui/react";
 import { BiArrowBack as ArrowLeftIcon } from "react-icons/bi";
 
@@ -33,17 +34,33 @@ function Success({ location }) {
         <Heading>Parabéns!</Heading>
 
         <VStack mt="8" spacing="3" align="stretch">
+          <Text>Chegaste ao fim do teu exame de nível :)</Text>
           <Text>
-            Terminou com sucesso o seu exame! Iremos agora verificar as suas
-            respostas e deverá receber nas próximas 24 horas úteis um e-mail com
-            o seu nível correto.
-            <br /> Se encontrar algum problema na sua submissão, contacte-nos e
-            dê-nos a sua identificação de submissão (abaixo indicada).
+            Conseguiste atingir o nível <b>{level}</b> na parte escrita.
           </Text>
-          <Text>
-            Conseguiu atingir o nível <b>{level}</b> (provisório).
-          </Text>
-          <Text fontSize="sm">A sua submissão é a {submissionId}.</Text>
+
+          {submissionId ? (
+            <>
+              <Text>
+                Em breve, após a avaliação da tua prova oral, receberás um email
+                com o teu nível final.
+              </Text>
+
+              <Text>
+                Se encontrares algum problema na tua submissão, contacta-nos e
+                dá-nos a tua identificação de submissão (abaixo indicada).
+              </Text>
+              <Text fontSize="sm">A sua submissão é a {submissionId}.</Text>
+            </>
+          ) : (
+            <Text>
+              <Text>
+                Gostavas de fazer a parte oral do exame de nível? Entra em
+                contacto connosco em{" "}
+                <Link href="mailto:geral@nowclub.pt">geral@nowclub.pt</Link>
+              </Text>
+            </Text>
+          )}
         </VStack>
 
         <VStack mt="4" spacing="4" align="flex-start">

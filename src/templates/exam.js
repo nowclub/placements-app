@@ -21,7 +21,15 @@ const LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
 export default function ExamPage({ data }) {
   const {
-    exam: { slug, title, description, image, writtenQuestions, oralQuestions },
+    exam: {
+      slug,
+      title,
+      description,
+      image,
+      publish_result,
+      writtenQuestions,
+      oralQuestions,
+    },
   } = data;
 
   const [step, setStep] = useState("written");
@@ -31,9 +39,12 @@ export default function ExamPage({ data }) {
   const advanceLevel = () => {
     setLevelIdx(levelIdx + 1);
     if (level === "C1") {
-      setStep("oral");
+      if (oralQuestions) setStep("oral");
+      else setStep("contact");
     }
   };
+
+  const hasOralQuestions = oralQuestions;
 
   const currentQuestions = writtenQuestions.filter((q) => q.level === level);
 
@@ -61,7 +72,8 @@ export default function ExamPage({ data }) {
     if (score > 0.7) {
       advanceLevel();
     } else {
-      setStep("oral");
+      if (oralQuestions) setStep("oral");
+      else setStep("contact");
     }
   };
 
@@ -84,26 +96,30 @@ export default function ExamPage({ data }) {
 
   useEffect(() => {
     if (step === "submitting") {
-      fetch("/api/submit-placement", {
-        method: "POST",
-        body: JSON.stringify({
-          exam: slug,
-          level: LEVELS[levelIdx],
-          oralAnswers,
-          writtenAnswers,
-          contact,
-        }),
-        headers: new Headers({
-          "content-type": "application/json",
-        }),
-      })
-        .then((resp) => resp.json())
-        .then(({ submissionId, level }) =>
-          navigate("/success", { state: { submissionId, level } })
-        )
-        .catch(() => {
-          setStep("contact");
-        });
+      if (publish_result) {
+        fetch("/api/submit-placement", {
+          method: "POST",
+          body: JSON.stringify({
+            exam: slug,
+            level: LEVELS[levelIdx],
+            oralAnswers,
+            writtenAnswers,
+            contact,
+          }),
+          headers: new Headers({
+            "content-type": "application/json",
+          }),
+        })
+          .then((resp) => resp.json())
+          .then(({ submissionId, level }) =>
+            navigate("/success", { state: { submissionId, level } })
+          )
+          .catch(() => {
+            setStep("contact");
+          });
+      } else {
+        navigate("/success", { state: { level } });
+      }
     }
   }, [step, level, oralAnswers, writtenAnswers, contact, levelIdx, slug]);
 
@@ -202,6 +218,7 @@ export const pageQuery = graphql`
       slug
       title
       description
+      publish_result
       image {
         childImageSharp {
           gatsbyImageData(aspectRatio: 1)
