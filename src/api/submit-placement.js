@@ -9,8 +9,6 @@ export default async function handler(req, res) {
 
   const { exam, contact, level, oralAnswers, writtenAnswers } = submission;
 
-  console.log(level);
-
   const records = await base("Submissions").create([
     {
       fields: {
